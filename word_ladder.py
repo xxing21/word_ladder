@@ -51,7 +51,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                 copy.append(word)
                 if word == end_word:
                     return copy
-                q.append(copy)
+                q.appendleft(copy)
                 dictionary.remove(word)
 
 
