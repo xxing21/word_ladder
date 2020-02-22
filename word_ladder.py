@@ -49,7 +49,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                 copy = deepcopy(s)
                 copy.append(word)
                 q.append(copy)
-                del word
+                dictonary.remove(word)
 
 
 def verify_word_ladder(ladder):
