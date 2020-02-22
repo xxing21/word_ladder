@@ -40,7 +40,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     q.appendleft(s)
 
     while len(q) != 0:
-        top = q.pop()[0]
+        top = q.pop()[-1]
         for word in dictionary:
             if _adjacent(top, word) is True:
                 if word == end_word:
