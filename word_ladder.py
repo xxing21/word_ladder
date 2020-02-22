@@ -31,25 +31,27 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     from collections import deque
     from copy import deepcopy
 
-    f = open('words5.dict')
+    f = open(dictionary_file)
     dictionary = f.read().split("\n")
 
     s = []
     s.append(start_word)
     q = deque()
-    q.append(s)
+    q.appendleft(s)
 
-    while len(q) > 0:
+    while len(q) != 0:
         top = q.pop()[0]
         for word in dictionary:
             if _adjacent(top, word) is True:
                 if word == end_word:
                     s.append(word)
                     return s
-                copy = deepcopy(s)
+                copy = deepcopy(top)
                 copy.append(word)
-                q.append(copy)
+                q.appendleft(copy)
                 dictionary.remove(word)
+
+
 
 
 def verify_word_ladder(ladder):
