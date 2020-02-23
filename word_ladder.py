@@ -40,20 +40,17 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     q = deque()
     q.append(s)
 
-    if len(q) == 0:
-        return False
-
     while len(q) != 0:
         top = q.pop()
         for word in dictionary:
             if _adjacent(top[-1], word) is True:
-                copy = deepcopy(s)
+                copy = deepcopy(top)
                 copy.append(word)
                 if word == end_word:
                     return copy
                 q.appendleft(copy)
                 dictionary.remove(word)
-
+    return None
 
 def verify_word_ladder(ladder):
     '''
