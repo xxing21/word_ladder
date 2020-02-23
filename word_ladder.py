@@ -40,6 +40,9 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     q = deque()
     q.append(s)
 
+    if start_word == end_word:
+        return s
+
     while len(q) != 0:
         top = q.pop()
         for word in dictionary:
