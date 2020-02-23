@@ -32,7 +32,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     from copy import deepcopy
 
 
-    f = open('words5.dict')
+    f = open(dictionary_file)
     dictionary = f.read().split("\n")
 
     s = []
