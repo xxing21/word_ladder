@@ -45,14 +45,12 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
 
     while len(q) != 0:
         top = q.pop()
-        for word in dictionary:
+        dictionary_copy = deepcopy(dictionary)
+        for word in dictionary_copy:
             if _adjacent(top[-1], word) is True:
                 copy = deepcopy(top)
                 copy.append(word)
                 if word == end_word:
-                    for i in range(1,len(copy)-2):
-                        if _adjacent(copy[i-1],copy[i+1]):
-                            copy.pop(i)
                     return copy
                 q.appendleft(copy)
                 dictionary.remove(word)
